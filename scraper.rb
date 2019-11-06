@@ -1,15 +1,8 @@
-require "nokogiri"
-require "httparty"
 require "byebug"
 require "selenium-webdriver"
 require "wait"
 require 'dotenv/load'
 
-def scraper
-    url = 'https://www.dominionenergy.com/sign-in'
-    unparsed_page = HTTParty.get(url)
-    parsed_page = Nokogiri::HTML(unparsed_page)
-end
 
 driver = Selenium::WebDriver.for :chrome
 driver.navigate.to 'https://www.dominionenergy.com/sign-in'

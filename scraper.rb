@@ -8,30 +8,49 @@ driver = Selenium::WebDriver.for :chrome
 driver.navigate.to 'https://www.dominionenergy.com/sign-in'
 wait = Selenium::WebDriver::Wait.new(:timeout => 10)
 
+
+def get_by_name(driver, name)
+    driver.find_element(:name, name)
+end
+
+def get_by_id(driver, id)
+    driver.find_element(:id, id)
+end
+
+def get_by_class(driver, class_name)
+    driver.find_elements(:class, class_name)
+end
+
+def get_single_class(driver, class_name)
+    driver.find_element(:class, class_name)
+end
+
+
+
     # select login button
-    login = driver.find_element(class: 'top-hitter')
+    login = get_single_class(driver, 'top-hitter')
     login.click
 
     # fill in username & password then submit
-    wait.until { driver.find_element(:name, 'USER') }
-    username = driver.find_element(:name, 'USER')
+    wait.until { get_by_name(driver, 'USER')}
+    username = get_by_name(driver, 'USER')
     un = ENV["UNAME"]
     username.send_keys "#{un}"
 
-    password = driver.find_element(:name, 'PASSWORD')
+    password = get_by_name(driver, 'PASSWORD')
     pw = ENV["PW"]
     password.send_keys "#{pw}"
 
-    submit = driver.find_element(:id, 'btnSubmit')
+    submit = get_by_id(driver, 'btnSubmit')
     submit.click
 
 byebug
 
     # due date
-    wait.until { driver.find_element(:class, 'bodyTextGreen') }
-    due_date = driver.find_elements(:class, 'bodyTextGreen')[0].text
+    wait.until { get_by_class(driver, 'bodyTextGreen') }
+    due_date = get_by_class(driver, 'bodyTextGreen')[0].text
     # bill amount
-    bill_amount = driver.find_elements(:class, 'bodyTextGreen')[1].text
+    bill_amount = get_by_class(driver, 'bodyTextGreen')[1].text
 
     # get to usage page
     usage_page = driver.find_element(:link, 'Analyze Energy Usage')
@@ -41,11 +60,11 @@ byebug
     start_date = driver.find_elements(:tag_name, "td")[4].text
 
     # end_date
-    wait.until { driver.find_element(:class, "tbl-td-center") }
-    end_date = driver.find_elements(:class, "tbl-td-center")[0].text
+    wait.until { get_by_class(driver, "tbl-td-center") }
+    end_date = get_by_class(driver, "tbl-td-center")[0].text
 
     # usage
-    usage = driver.find_elements(:class, "tbl-td-center")[2].text
+    usage = get_by_class(driver, "tbl-td-center")[2].text
 
 # output
 puts ("Bill Amount: #{bill_amount}

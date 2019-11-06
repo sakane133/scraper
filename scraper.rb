@@ -3,7 +3,6 @@ require "selenium-webdriver"
 require "wait"
 require 'dotenv/load'
 
-
 driver = Selenium::WebDriver.for :chrome
 driver.navigate.to 'https://www.dominionenergy.com/sign-in'
 wait = Selenium::WebDriver::Wait.new(:timeout => 10)

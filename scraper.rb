@@ -5,7 +5,7 @@ require 'dotenv/load'
 
 
 driver = Selenium::WebDriver.for :chrome
-driver.navigate.to 'https://www.dominionenergy.com/sign-in'
+driver.navigate.to 'https://mydom.dominionenergy.com/siteminderagent/forms/login.fcc?TYPE=33554433&REALMOID=06-b1426164-283c-487c-b4ad-645d5f3e03af&GUID=&SMAUTHREASON=0&METHOD=GET&SMAGENTNAME=FTym4CzlYxlWQmppoRodMtOB72IsaekMnbsUs4TpBqmjxyc89Akr5Hrundmzou72&TARGET=-SM-https%3a%2f%2fmydom%2edominionenergy%2ecom%2f'
 wait = Selenium::WebDriver::Wait.new(:timeout => 10)
 
 
@@ -28,8 +28,8 @@ end
 
 
     # select login button
-    login = get_single_class(driver, 'top-hitter')
-    login.click
+    # login = get_single_class(driver, 'top-hitter')
+    # login.click
 
     # fill in username & password then submit
     wait.until { get_by_name(driver, 'USER')}
@@ -53,10 +53,12 @@ byebug
     bill_amount = get_by_class(driver, 'bodyTextGreen')[1].text
 
     # get to usage page
+    wait.until { driver.find_element(:link, 'Analyze Energy Usage')}
     usage_page = driver.find_element(:link, 'Analyze Energy Usage')
     usage_page.click
 
     # start date
+    wait.until {driver.find_elements(:tag_name, "td")}
     start_date = driver.find_elements(:tag_name, "td")[4].text
 
     # end_date

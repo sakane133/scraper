@@ -6,7 +6,7 @@ To start please create a file called .env
 
 This file will contain the username and password for the account we are collecting data from.
 
-Add the Dominion Energy Username and Password with the variables UNAME and PW. Below is what the .env file should look like with the confidential username and password (username and password should be written in single quotes).
+Add the Dominion Energy Username and Password with the variables USERNAME and PW. Below is what the .env file should look like with the confidential username and password (username and password should be written in single quotes).
 
     USERNAME = '<username>'
     PW = '<password>'

@@ -8,8 +8,8 @@ This file will contain the username and password for the account we are collecti
 
 Add the Dominion Energy Username and Password with the variables UNAME and PW. Below is what the .env file should look like.
 
-UNAME = 'abhalla1'
-PW = 'QxoQH5FAdVFJPqQhWa1g0qXo'
+    USERNAME = 'abhalla1'
+    PW ='QxoQH5FAdVFJPqQhWa1g0qXo'
 
 \*\*\*Please note: This github repository is private, the provided username and password above has not been made public on github.\*\*\*
 
@@ -20,8 +20,8 @@ To use the Scraper, in the terminal, run:
 1.  bundle Install
 2.  ruby scraper.rb
 
-Due to Dominion Energy's captcha, there is a byebug on submit of the login information to complete the Captcha manually. If the captcha no longer exists, the byebug can be taken out and everything should run smoothly on it's own.
+Due to Dominion Energy's captcha, there is a byebug on submit of the login information to complete the Captcha manually on your browser. If the captcha no longer exists, the byebug can be taken out and everything should run smoothly on it's own.
 
 After getting through the captcha, return to your terminal to type 'continue' to proceed with the scraper and get out of the byebug.
 
-Once the application is complete, it will print out the Bill information. The usage, bill amount, service start date, service end date, and bill due date for the current bill will be printed in the terminal for you to read.
+Once the application is complete, it will print out the Bill information. The bill amount, bill due date, usage, service start date, and service end date for the current bill will be printed in the terminal for you to read.

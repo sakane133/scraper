@@ -21,20 +21,10 @@ def get_by_class(driver, class_name)
     driver.find_elements(:class, class_name)
 end
 
-def get_single_class(driver, class_name)
-    driver.find_element(:class, class_name)
-end
-
-
-
-    # select login button
-    # login = get_single_class(driver, 'top-hitter')
-    # login.click
-
     # fill in username & password then submit
     wait.until { get_by_name(driver, 'USER')}
     username = get_by_name(driver, 'USER')
-    un = ENV["UNAME"]
+    un = ENV["USERNAME"]
     username.send_keys "#{un}"
 
     password = get_by_name(driver, 'PASSWORD')
@@ -72,5 +62,5 @@ byebug
 puts ("Bill Amount: #{bill_amount}
 Bill Due Date: #{due_date}
 Usage: #{usage} kWh
-Start Date: #{start_date}
-End Date: #{end_date}")
+Service Start Date: #{start_date}
+Service End Date: #{end_date}")

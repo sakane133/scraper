@@ -35,7 +35,6 @@ end
     submit = get_by_id(driver, 'btnSubmit')
     submit.click
 
-byebug
 
     # due date
     wait.until { get_by_class(driver, 'bodyTextGreen') }
@@ -57,9 +56,10 @@ byebug
     end_date = get_by_class(driver, "tbl-td-center")[0].text
 
     # usage
+    wait.until { get_by_class(driver, "tbl-td-center") }
     usage = get_by_class(driver, "tbl-td-center")[2].text
 
-# output
+# output with user data
 puts ("Bill Amount: #{bill_amount}
 Bill Due Date: #{due_date}
 Usage: #{usage} kWh

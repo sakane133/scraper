@@ -27,6 +27,7 @@ end
     un = ENV["USERNAME"]
     username.send_keys "#{un}"
 
+    wait.until { get_by_name(driver, 'PASSWORD')}
     password = get_by_name(driver, 'PASSWORD')
     pw = ENV["PW"]
     password.send_keys "#{pw}"

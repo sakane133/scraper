@@ -56,7 +56,6 @@ end
     end_date = get_by_class(driver, "tbl-td-center")[0].text
 
     # usage
-    wait.until { get_by_class(driver, "tbl-td-center") }
     usage = get_by_class(driver, "tbl-td-center")[2].text
 
 # output with user data
